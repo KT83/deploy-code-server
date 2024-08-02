@@ -5,7 +5,7 @@ USER coder
 
 # Apply VS Code settings
 COPY deploy-container/settings.json .local/share/code-server/User/settings.json
-COPY deploy-container/docx-renderer.vsix ~/.vscode/extensions/docx-renderer.vsix
+COPY deploy-container/docx-renderer.vsix /home/coder/.vscode/extensions/docx-renderer.vsix
 
 # Use bash shell
 ENV SHELL=/bin/bash
@@ -27,7 +27,7 @@ RUN sudo chown -R coder:coder /home/coder/.local
 # Note: we use a different marketplace than VS Code. See https://github.com/cdr/code-server/blob/main/docs/FAQ.md#differences-compared-to-vs-code
 RUN code-server --install-extension esbenp.prettier-vscode
 RUN code-server --install-extension GrapeCity.gc-excelviewer
-RUN code-server --install-extension ~/.vscode/extensions/docx-renderer.vsix
+RUN code-server --install-extension /home/coder/.vscode/extensions/docx-renderer.vsix
 
 # Install apt packages:
 # RUN sudo apt-get install -y ubuntu-make
