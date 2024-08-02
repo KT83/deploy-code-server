@@ -6,6 +6,7 @@ USER coder
 # Apply VS Code settings
 COPY deploy-container/settings.json .local/share/code-server/User/settings.json
 COPY deploy-container/vscode-pdf.vsix /home/morph-vscode/vscode-pdf.vsix
+COPY deploy-container/docx-renderer.vsix /home/morph-vscode/docx-renderer.vsix
 
 # Use bash shell
 ENV SHELL=/bin/bash
@@ -28,6 +29,7 @@ RUN sudo chown -R coder:coder /home/coder/.local
 RUN code-server --install-extension esbenp.prettier-vscode
 RUN code-server --install-extension GrapeCity.gc-excelviewer
 RUN code-server --install-extension /home/morph-vscode/vscode-pdf.vsix
+RUN code-server --install-extension /home/morph-vscode/docx-renderer.vsix
 
 # Install apt packages:
 # RUN sudo apt-get install -y ubuntu-make
