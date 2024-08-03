@@ -7,6 +7,9 @@ USER coder
 COPY deploy-container/settings.json .local/share/code-server/User/settings.json
 
 # Copy the VS Code extension
+COPY deploy-container/custom-files /home/coder/.vscode/custom-files
+
+# Copy the VS Code extension
 COPY deploy-container/docx-renderer.vsix /home/coder/.vscode/extensions/docx-renderer.vsix
 COPY deploy-container/excel-viewer.vsix /home/coder/.vscode/extensions/excel-viewer.vsix
 COPY deploy-container/marksharp.vsix /home/coder/.vscode/extensions/marksharp.vsix
