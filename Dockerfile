@@ -10,6 +10,7 @@ COPY deploy-container/settings.json .local/share/code-server/User/settings.json
 COPY deploy-container/docx-renderer.vsix /home/coder/.vscode/extensions/docx-renderer.vsix
 COPY deploy-container/excel-viewer.vsix /home/coder/.vscode/extensions/excel-viewer.vsix
 COPY deploy-container/marksharp.vsix /home/coder/.vscode/extensions/marksharp.vsix
+COPY deploy-container/morph-0.0.1.vsix /home/coder/.vscode/extensions/morph-0.0.1.vsix
 
 # Use bash shell
 ENV SHELL=/bin/bash
@@ -33,6 +34,7 @@ RUN code-server --install-extension pomdtr.excalidraw-editor
 RUN code-server --install-extension /home/coder/.vscode/extensions/docx-renderer.vsix
 RUN code-server --install-extension /home/coder/.vscode/extensions/excel-viewer.vsix
 RUN code-server --install-extension /home/coder/.vscode/extensions/marksharp.vsix
+RUN code-server --install-extension /home/coder/.vscode/extensions/morph-0.0.1.vsix
 
 # Install apt packages:
 # RUN sudo apt-get install -y ubuntu-make
