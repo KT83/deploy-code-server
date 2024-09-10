@@ -43,6 +43,10 @@ RUN code-server --install-extension /home/coder/.vscode/extensions/marksharp.vsi
 # Copy files: 
 # COPY deploy-container/myTool /home/coder/myTool
 
+# Node Install
+RUN sudo curl -fsSL https://deb.nodesource.com/setup_18.x | sudo bash -
+RUN sudo apt-get install -y nodejs
+
 # -----------
 
 # Port
